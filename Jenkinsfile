@@ -3,6 +3,7 @@ node {
         git "https://github.com/mshoeb007/mavenproject/"
     }
     stage('--Package--') {
-            sh 'mvn package'
+        def mavenvariable = tool name: 'M2_HOME', type: 'maven'
+        sh "${mavenvariable}/bin/mvn package"
     }
 }
