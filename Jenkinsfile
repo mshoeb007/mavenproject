@@ -1,21 +1,8 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('-----Clean----') {
-            steps {
-                sh 'mvn clean'
-            }
-        }
-        stage('--test--') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-        stage('--Package--') {
-            steps {
-                sh 'mvn package'
-            }
-        }
+node {
+    stage('SCM check') {
+        git "https://github.com/mshoeb007/mavenproject/"
+    }
+    stage('--Package--') {
+            sh 'mvn package'
     }
 }
