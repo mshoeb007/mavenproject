@@ -4,6 +4,6 @@ node {
     }
     stage('--Package--') {
         def mavenvariable = tool name: 'M2_HOME', type: 'maven'
-        sh "${mavenvariable}/bin/mvn package"
+        sh "${mavenvariable}/opt/maven/bin/mvn package"
     }
 }
